@@ -2,12 +2,10 @@ import ChefClaudeIcon from "../assets/chef-claude-icon.svg";
 
 function Header(){
     return (
-        <Header>
-            <nav>
+        <header>
                 <img src={ChefClaudeIcon} alt="chef claude icon" />
-                <p className="header-title">Chef Claude</p>
-            </nav>
-        </Header>
+                <h1 className="header-title">Chef Claude</h1>
+        </header>
     )
 }
 
