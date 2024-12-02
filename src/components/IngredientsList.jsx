@@ -16,7 +16,7 @@ function IngredientsList(props){
                 <h3>Ready for a recipe?</h3>
                 <p>Generate a recipe from your list of ingredients.</p>
               </div>
-              <button onClick={props.toggleRecipeShown}>Get a recipe</button>
+              <button onClick={props.getRecipe}>Get a recipe</button>
             </div>
           )}
         </section>
@@ -24,6 +24,6 @@ function IngredientsList(props){
 }
 IngredientsList.propTypes = {
     ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
-    toggleRecipeShown: PropTypes.func.isRequired,
+    getRecipe: PropTypes.func.isRequired,
   };
 export default IngredientsList

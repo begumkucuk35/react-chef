@@ -1,15 +1,11 @@
 import React from "react";
 import IngredientsList from "./IngredientsList";
 import ClaudeRecipe from "./ClaudeRecipe";
+import {getRecipeFromHuggingFace} from "../../ai"
 
 function Main() {
-  const [ingredients, setIngredients] = React.useState([
-    "all the main spices",
-    "pasta",
-    "ground beef",
-    "tomato paste",
-  ]);
-  const [recipeShown, setRecipeShown] = React.useState(false);
+  const [ingredients, setIngredients] = React.useState([]);
+  const [recipe, setRecipe] = React.useState("");
 
   
   function addIngredient(event) {
@@ -21,8 +17,9 @@ function Main() {
     formEl.reset();
   }
 
-  function toggleRecipeShown(){
-    setRecipeShown( prevValue => !prevValue)
+  async function getRecipe(){
+    const recipeMarkdown = await getRecipeFromHuggingFace(ingredients)
+    setRecipe(recipeMarkdown)
   }
 
   return (
@@ -37,10 +34,10 @@ function Main() {
         <button type="submit">Add ingredient</button>
       </form>
       {ingredients.length > 0 && (
-        <IngredientsList ingredients={ingredients} toggleRecipeShown={toggleRecipeShown}/>
+        <IngredientsList ingredients={ingredients} getRecipe={getRecipe}/>
       )}
-      {recipeShown && (
-        <ClaudeRecipe />
+      {recipe && (
+        <ClaudeRecipe recipe={recipe}/>
       )}
     </main>
   );
