@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 
 function IngredientsList(props){
     const mappedIngredients = props.ingredients.map((ingredient) => (
@@ -12,7 +11,7 @@ function IngredientsList(props){
           </ul>
           {props.ingredients.length > 3 && (
             <div className="get-recipe-container">
-              <div>
+              <div ref={props.myRef}>
                 <h3>Ready for a recipe?</h3>
                 <p>Generate a recipe from your list of ingredients.</p>
               </div>
@@ -22,8 +21,4 @@ function IngredientsList(props){
         </section>
     )
 }
-IngredientsList.propTypes = {
-    ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
-    getRecipe: PropTypes.func.isRequired,
-  };
 export default IngredientsList

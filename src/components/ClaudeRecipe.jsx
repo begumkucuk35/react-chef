@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import ReactMarkdown from "react-markdown";
 
 function ClaudeRecipe(props) {
@@ -9,7 +8,4 @@ function ClaudeRecipe(props) {
     </section>
   );
 }
-ClaudeRecipe.propTypes = {
-  recipe: PropTypes.string.isRequired,
-};
 export default ClaudeRecipe;
